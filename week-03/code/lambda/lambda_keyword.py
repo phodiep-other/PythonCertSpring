@@ -35,4 +35,10 @@ extra credit: do it with a list comprhension, instead of a for loop
 
 def function_builder(n):
     ## put somethingin here...
-    pass
+    tmpList = []
+    tmpList = [lambda x, i=i: x + i for i in range(n)]
+#    for i in range (n):
+#        tmpList.append(lambda x, i = i: x + i)
+    return tmpList
+
+

@@ -32,7 +32,10 @@ def p_wrapper(f):
     """
     fill in decorator here
     """
-    pass
+    def wrapper(*args):
+        return '<p>' + f(*args) + '</p>'
+    return wrapper
+#    pass
 
 
 
@@ -79,16 +82,23 @@ if __name__ == "__main__":
 
 
     # ## and try the class version:
+class tag_wrapper:
+    def __init__(self, tag):
+        self.tag = tag
+    def __call__(self, function):
+        def wrapper(*args):
+            return '<%s>%s</%s>' %(self.tag,function(*args),self.tag)
+        return wrapper       
 
-    # @tag_wrapper('h1')
-    # def func2(x, y=4, z=2):
-    #     return "the sum of %s and %s and %s is %s"%(x, y, z, x+y+z)
+@tag_wrapper('h1')
+def func2(x, y=4, z=2):
+    return "the sum of %s and %s and %s is %s"%(x, y, z, x+y+z)
 
-    # print func2(3,4)
+print func2(3,4)
 
-    # @tag_wrapper('div')
-    # def func2(x, y=4, z=2):
-    #     return "the sum of %s and %s and %s is %s"%(x, y, z, x+y+z)
+@tag_wrapper('div')
+def func2(x, y=4, z=2):
+    return "the sum of %s and %s and %s is %s"%(x, y, z, x+y+z)
 
-    # print func2(5,6,7)
+print func2(5,6,7)
 
