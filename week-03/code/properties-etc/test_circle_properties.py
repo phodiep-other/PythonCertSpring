@@ -14,7 +14,8 @@ designed to be run with py.test
 """
 
 from circle_properties import Circle
-#from circle_properties_solution import Circle
+
+##from circle_properties_solution import Circle
 
 
 def test_basic():
@@ -92,5 +93,5 @@ def test_from_diameter():
 
 def test_circumference():
     c = Circle.circumference(3.0)
-    assert c == math.pi * 3.0**2
+    assert c == 2 * math.pi * 3.0
 

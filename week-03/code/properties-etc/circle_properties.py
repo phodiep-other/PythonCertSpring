@@ -35,4 +35,23 @@ class Circle(object):
     def __init__(self, radius):
         self.radius = radius
 
-    # put the rest in here...
+    
+    @property
+    def diameter(self):
+        return self.radius *2
+
+    @property
+    def area(self):
+        return math.pi * self.radius ** 2
+
+    
+    @diameter.setter
+    def from_diameter(self,x):
+        self.radius = x / 2
+
+
+    @staticmethod
+    def circumference(x):
+        return 2* math.pi * x
+
+    
